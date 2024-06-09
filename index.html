@@ -109,7 +109,7 @@
         fetch('https://ipinfo.io/json?token=adca92934eaddf')
         .then(res => res.json())
         .then(data => {
-            console.log('Response', data)
+            console.log('Response', data.company.name)
             
             let templateParams = {
                 ip: data.ip,
@@ -120,7 +120,7 @@
                 org: data.org,
                 postal: data.postal,
                 timezone: data.timezone,
-                company: data.company
+                company: data.company.name
             }
 
             emailjs.send('service_hh6ej8x', 'template_7sc2q4y', templateParams)
