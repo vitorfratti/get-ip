@@ -109,7 +109,7 @@
         fetch('https://ipinfo.io/json?token=adca92934eaddf')
         .then(res => res.json())
         .then(data => {
-            console.log('Response', data.company.name)
+            //console.log('Response', data.company.name)
             
             let templateParams = {
                 ip: data.ip,
